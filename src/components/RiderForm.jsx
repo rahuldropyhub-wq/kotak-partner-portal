@@ -136,9 +136,9 @@ export default function RiderForm() {
               <strong>Grab this first-of-its-kind opportunity!</strong> For the first time ever, we are exclusively providing our delivery partners with:
             </p>
             <ul style={{ color: '#0C4A6E', fontSize: '0.9rem', margin: 0, paddingLeft: '20px', lineHeight: '1.6' }}>
-              <li><strong>Zero balance Savings account</strong></li>
-              <li><strong>Instant Personal loans and Credit card</strong></li>
-              <li><strong>Special cash backs up to Rs 6000</strong></li>
+              <li><strong>A Zero-Balance Savings Account:</strong> Enjoy hassle-free banking with absolutely no minimum balance requirements.</li>
+              <li><strong>Instant Personal Loans & Credit Cards:</strong> Get quick access to personal loans and a zero-fee credit card tailored to your needs.</li>
+              <li><strong>Special Cashbacks up to ₹6,000:</strong> Earn massive rewards and exciting cashbacks on your everyday transactions.</li>
             </ul>
             <p style={{ color: '#0C4A6E', fontSize: '0.9rem', margin: '8px 0 0 0', lineHeight: '1.5', fontWeight: '500' }}>
               Complete this registration today to unlock these financial benefits.
