@@ -383,7 +383,8 @@ input::placeholder {
   gap: 1rem;
 }
 
-.step-actions.two-btn .submit-btn {
+.step-actions.two-btn .submit-btn,
+.step-actions.two-btn .back-btn {
   flex: 1;
 }
 
