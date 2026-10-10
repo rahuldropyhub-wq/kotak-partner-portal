@@ -320,7 +320,7 @@ export default function RiderForm() {
 
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="riderId">Rider ID *</label>
+                <label htmlFor="riderId">Rider ID (Optional)</label>
                 <input
                   type="text"
                   id="riderId"
@@ -328,7 +328,6 @@ export default function RiderForm() {
                   placeholder="e.g. RDR-1234"
                   value={form.riderId}
                   onChange={handleChange}
-                  required
                 />
               </div>
             </div>
