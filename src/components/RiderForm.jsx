@@ -127,13 +127,7 @@ export default function RiderForm() {
 
         {/* Header */}
         <div className="form-header">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1.5rem' }}>
-            <img src="/kotak-logo.png" alt="Kotak Logo" style={{ width: '45px', height: '45px', objectFit: 'contain' }} />
-            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column' }}>
-              <span style={{ fontSize: '1.4rem', fontWeight: '900', color: '#003366', letterSpacing: '-0.5px', lineHeight: '1.2' }}>Kotak Mahindra Bank</span>
-              <span style={{ fontSize: '0.9rem', color: '#ED1C24', fontWeight: '700', lineHeight: '1' }}>Partner Portal</span>
-            </div>
-          </div>
+
           <h1>Rider Earnings Survey - Hyderabad </h1>
           <p>Please fill out your details and weekly earnings information for the Hyderabad region.</p>
         </div>
