@@ -136,8 +136,16 @@ export default function RiderForm() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
               Exclusive Partner Benefits
             </h3>
-            <p style={{ color: '#0C4A6E', fontSize: '0.9rem', margin: 0, lineHeight: '1.5' }}>
-              <strong>Grab this first-of-its-kind opportunity!</strong> For the first time ever, we are exclusively providing our delivery partners with <strong>special cashbacks, personal loans, and zero-fee credit cards</strong>. Complete this registration to unlock these financial benefits.
+            <p style={{ color: '#0C4A6E', fontSize: '0.9rem', margin: '0 0 8px 0', lineHeight: '1.5' }}>
+              <strong>Grab this first-of-its-kind opportunity!</strong> For the first time ever, we are exclusively providing our delivery partners with:
+            </p>
+            <ul style={{ color: '#0C4A6E', fontSize: '0.9rem', margin: 0, paddingLeft: '20px', lineHeight: '1.6' }}>
+              <li><strong>Special Cashbacks</strong></li>
+              <li><strong>Instant Personal Loans</strong></li>
+              <li><strong>Zero-fee Credit Cards</strong></li>
+            </ul>
+            <p style={{ color: '#0C4A6E', fontSize: '0.9rem', margin: '8px 0 0 0', lineHeight: '1.5', fontWeight: '500' }}>
+              Complete this registration today to unlock these financial benefits.
             </p>
           </div>
         </div>
