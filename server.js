@@ -5,7 +5,7 @@ import 'dotenv/config';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const sql = neon(process.env.DATABASE_URL);
+const sql = neon(process.env.DATABASE_URL || "postgresql://neondb_owner:npg_Y2UrWSEcP6bx@ep-plain-flower-b4aqi8mu-pooler.c-6.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require");
 
 app.use(cors());
 app.use(express.json());
