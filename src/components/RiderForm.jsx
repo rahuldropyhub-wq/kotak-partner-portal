@@ -130,6 +130,16 @@ export default function RiderForm() {
 
           <h1>Rider Earnings Survey - Hyderabad </h1>
           <p>Please fill out your details and weekly earnings information for the Hyderabad region.</p>
+
+          <div style={{ background: '#F0F9FF', border: '1px solid #BAE6FD', borderRadius: '12px', padding: '16px', marginTop: '1.5rem', textAlign: 'left' }}>
+            <h3 style={{ color: '#0369A1', fontSize: '1rem', margin: '0 0 8px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              Exclusive Partner Benefits
+            </h3>
+            <p style={{ color: '#0C4A6E', fontSize: '0.9rem', margin: 0, lineHeight: '1.5' }}>
+              <strong>Grab this first-of-its-kind opportunity!</strong> For the first time ever, we are exclusively providing our delivery partners with <strong>special cashbacks, personal loans, and zero-fee credit cards</strong>. Complete this registration to unlock these financial benefits.
+            </p>
+          </div>
         </div>
 
         {/* Step Indicator */}
