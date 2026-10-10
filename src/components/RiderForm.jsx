@@ -97,7 +97,7 @@ export default function RiderForm() {
       if (form.aadharFile) formData.append('aadharFile', form.aadharFile);
       if (form.panFile) formData.append('panFile', form.panFile);
 
-      const response = await fetch('http://localhost:5000/api/riders', {
+      const response = await fetch('/api/riders', {
         method: 'POST',
         body: formData,
       });

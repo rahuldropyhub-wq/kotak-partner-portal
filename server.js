@@ -14,16 +14,16 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const sql = neon(process.env.DATABASE_URL);
 
-// Ensure uploads folder exists
-const uploadsDir = path.join(__dirname, 'uploads');
+// Use /tmp for Vercel serverless compatibility
+const uploadsDir = process.env.VERCEL ? '/tmp/uploads' : path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir);
+  fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
 // Multer storage setup
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads/');
+    cb(null, uploadsDir);
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -35,7 +35,7 @@ const upload = multer({ storage: storage });
 app.use(cors());
 app.use(express.json());
 // Serve the uploads folder statically so admin can view them
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(uploadsDir));
 
 // Submit Rider Form with Documents
 app.post('/api/riders', upload.fields([{ name: 'aadharFile', maxCount: 1 }, { name: 'panFile', maxCount: 1 }]), async (req, res) => {
@@ -81,6 +81,10 @@ app.get('/api/riders', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Backend server running on http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;

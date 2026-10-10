@@ -165,7 +165,7 @@ export default function AdminDashboard() {
   }, []);
 
   const fetchData = () => {
-    fetch('http://localhost:5000/api/riders')
+    fetch('/api/riders')
       .then((res) => res.json())
       .then((data) => {
         setRiders(data);
@@ -607,15 +607,15 @@ export default function AdminDashboard() {
                 {viewDocs.aadhar_file ? (
                   viewDocs.aadhar_file.toLowerCase().endsWith('.pdf') ? (
                     <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
-                      <object data={`http://localhost:5000${viewDocs.aadhar_file}`} type="application/pdf" width="100%" height="300px" style={{borderRadius: '8px', border: '1px solid #cbd5e1'}}>
-                        <p>PDF preview not available. <a href={`http://localhost:5000${viewDocs.aadhar_file}`} target="_blank" rel="noreferrer">Download PDF</a></p>
+                      <object data={viewDocs.aadhar_file} type="application/pdf" width="100%" height="300px" style={{borderRadius: '8px', border: '1px solid #cbd5e1'}}>
+                        <p>PDF preview not available. <a href={viewDocs.aadhar_file} target="_blank" rel="noreferrer">Download PDF</a></p>
                       </object>
-                      <a href={`http://localhost:5000${viewDocs.aadhar_file}`} target="_blank" rel="noreferrer" style={{color: '#2563eb', fontWeight: '600', fontSize: '0.9rem'}}>Open PDF in New Tab</a>
+                      <a href={viewDocs.aadhar_file} target="_blank" rel="noreferrer" style={{color: '#2563eb', fontWeight: '600', fontSize: '0.9rem'}}>Open PDF in New Tab</a>
                     </div>
                   ) : (
-                    <a href={`http://localhost:5000${viewDocs.aadhar_file}`} target="_blank" rel="noreferrer" style={styles.imgLink}>
+                    <a href={viewDocs.aadhar_file} target="_blank" rel="noreferrer" style={styles.imgLink}>
                       <img 
-                        src={`http://localhost:5000${viewDocs.aadhar_file}`} 
+                        src={viewDocs.aadhar_file} 
                         alt="Aadhar" 
                         style={styles.docImg} 
                         onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/400x300?text=File+Missing+(Local+Dev)'; }}
@@ -631,15 +631,15 @@ export default function AdminDashboard() {
                 {viewDocs.pan_file ? (
                   viewDocs.pan_file.toLowerCase().endsWith('.pdf') ? (
                     <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
-                      <object data={`http://localhost:5000${viewDocs.pan_file}`} type="application/pdf" width="100%" height="300px" style={{borderRadius: '8px', border: '1px solid #cbd5e1'}}>
-                        <p>PDF preview not available. <a href={`http://localhost:5000${viewDocs.pan_file}`} target="_blank" rel="noreferrer">Download PDF</a></p>
+                      <object data={viewDocs.pan_file} type="application/pdf" width="100%" height="300px" style={{borderRadius: '8px', border: '1px solid #cbd5e1'}}>
+                        <p>PDF preview not available. <a href={viewDocs.pan_file} target="_blank" rel="noreferrer">Download PDF</a></p>
                       </object>
-                      <a href={`http://localhost:5000${viewDocs.pan_file}`} target="_blank" rel="noreferrer" style={{color: '#2563eb', fontWeight: '600', fontSize: '0.9rem'}}>Open PDF in New Tab</a>
+                      <a href={viewDocs.pan_file} target="_blank" rel="noreferrer" style={{color: '#2563eb', fontWeight: '600', fontSize: '0.9rem'}}>Open PDF in New Tab</a>
                     </div>
                   ) : (
-                    <a href={`http://localhost:5000${viewDocs.pan_file}`} target="_blank" rel="noreferrer" style={styles.imgLink}>
+                    <a href={viewDocs.pan_file} target="_blank" rel="noreferrer" style={styles.imgLink}>
                       <img 
-                        src={`http://localhost:5000${viewDocs.pan_file}`} 
+                        src={viewDocs.pan_file} 
                         alt="PAN" 
                         style={styles.docImg} 
                         onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/400x300?text=File+Missing+(Local+Dev)'; }}
