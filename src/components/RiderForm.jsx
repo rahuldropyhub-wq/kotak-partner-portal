@@ -104,6 +104,27 @@ export default function RiderForm() {
     }
   };
 
+  const fillDummyData = () => {
+    setForm({
+      fullName: 'Rahul Delivery Boy',
+      mobile: '9876543210',
+      email: 'rahul.delivery@example.com',
+      dob: '1995-05-15',
+      age: '31',
+      gender: 'male',
+      workCategory: 'Food Delivery',
+      company: 'Zomato',
+      employmentType: 'fulltime',
+      riderId: 'ZOM-1234',
+      weeklyEarnings: '4500',
+      workingHours: '40',
+      vehicleOwnership: 'Own',
+      vehicleType: 'Scooter',
+      hasAadhar: true,
+      hasPan: true,
+    });
+  };
+
   const handleCloseSuccess = () => {
     setShowSuccess(false);
     setForm(initialState);
@@ -117,7 +138,26 @@ export default function RiderForm() {
       <div className="form-card">
 
         {/* Header */}
-        <div className="form-header">
+        <div className="form-header" style={{ position: 'relative' }}>
+          
+          <button 
+            type="button" 
+            onClick={fillDummyData} 
+            style={{ 
+              position: 'absolute', 
+              top: '0', 
+              right: '0', 
+              background: '#E2E8F0', 
+              border: 'none', 
+              padding: '6px 12px', 
+              borderRadius: '6px', 
+              fontSize: '0.75rem', 
+              cursor: 'pointer',
+              fontWeight: '600',
+              color: '#475569'
+            }}>
+            Fill Dummy Data
+          </button>
 
           <h1>Rider Earnings Survey - Hyderabad </h1>
           <p>Please fill out your details and weekly earnings information for the Hyderabad region.</p>
