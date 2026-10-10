@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import CompanySelect from './CompanySelect';
-import FileUpload from './FileUpload';
 import SuccessPopup from './SuccessPopup';
 import { companyData } from '../data/companyData';
 
@@ -21,8 +20,8 @@ const initialState = {
   workingHours: '',
   vehicleOwnership: '',
   vehicleType: '',
-  aadharFile: null,
-  panFile: null,
+  hasAadhar: false,
+  hasPan: false,
 };
 
 export default function RiderForm() {
@@ -87,15 +86,12 @@ export default function RiderForm() {
     
     try {
       const formData = new FormData();
-      // Append all text fields
+      // Append all text/boolean fields
       Object.keys(form).forEach(key => {
-        if (key !== 'aadharFile' && key !== 'panFile' && form[key]) {
+        if (form[key] !== null && form[key] !== undefined) {
           formData.append(key, form[key]);
         }
       });
-      // Append files
-      if (form.aadharFile) formData.append('aadharFile', form.aadharFile);
-      if (form.panFile) formData.append('panFile', form.panFile);
 
       const response = await fetch('/api/riders', {
         method: 'POST',
@@ -140,16 +136,16 @@ export default function RiderForm() {
               <strong>Grab this first-of-its-kind opportunity!</strong> For the first time ever, we are exclusively providing our delivery partners with:
             </p>
             <ul style={{ color: '#0C4A6E', fontSize: '0.9rem', margin: 0, paddingLeft: '20px', lineHeight: '1.6' }}>
-              <li><strong>Special Cashbacks</strong></li>
-              <li><strong>Instant Personal Loans</strong></li>
-              <li><strong>Zero-fee Credit Cards</strong></li>
+              <li><strong>Zero balance Savings account</strong></li>
+              <li><strong>Instant Personal loans and Credit card</strong></li>
+              <li><strong>Special cash backs up to Rs 6000</strong></li>
             </ul>
             <p style={{ color: '#0C4A6E', fontSize: '0.9rem', margin: '8px 0 0 0', lineHeight: '1.5', fontWeight: '500' }}>
               Complete this registration today to unlock these financial benefits.
             </p>
           </div>
         </div>
-
+    
         {/* Step Indicator */}
         <div className="step-indicator">
           <div className={`step-item ${step >= 1 ? 'active' : ''} ${step > 1 ? 'completed' : ''}`}>
@@ -395,22 +391,26 @@ export default function RiderForm() {
 
             {/* Documents */}
             <div className="form-row">
-              <FileUpload
-                id="aadharFile"
-                label="Aadhar Card"
-                required
-                accept=".jpg,.jpeg,.png,.pdf"
-                fileName={form.aadharFile?.name ?? ''}
-                onChange={handleFileChange('aadharFile')}
-              />
-              <FileUpload
-                id="panFile"
-                label="PAN Card"
-                required
-                accept=".jpg,.jpeg,.png,.pdf"
-                fileName={form.panFile?.name ?? ''}
-                onChange={handleFileChange('panFile')}
-              />
+              <div className="form-group checkbox-group" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <input
+                  type="checkbox"
+                  id="hasAadhar"
+                  name="hasAadhar"
+                  checked={form.hasAadhar}
+                  onChange={(e) => setForm(prev => ({ ...prev, hasAadhar: e.target.checked }))}
+                />
+                <label htmlFor="hasAadhar" style={{ margin: 0 }}>I have an Aadhar Card</label>
+              </div>
+              <div className="form-group checkbox-group" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <input
+                  type="checkbox"
+                  id="hasPan"
+                  name="hasPan"
+                  checked={form.hasPan}
+                  onChange={(e) => setForm(prev => ({ ...prev, hasPan: e.target.checked }))}
+                />
+                <label htmlFor="hasPan" style={{ margin: 0 }}>I have a PAN Card</label>
+              </div>
             </div>
 
             {/* Navigation */}
