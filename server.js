@@ -2,25 +2,16 @@ import express from 'express';
 import cors from 'cors';
 import { neon } from '@neondatabase/serverless';
 import 'dotenv/config';
-import multer from 'multer';
-import path from 'path';
-import fs from 'fs';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const sql = neon(process.env.DATABASE_URL);
 
-const upload = multer();
-
 app.use(cors());
 app.use(express.json());
 
 // Submit Rider Form
-app.post('/api/riders', upload.none(), async (req, res) => {
+app.post('/api/riders', async (req, res) => {
   try {
     const {
       fullName, mobile, email, dob, age, gender, 
@@ -29,8 +20,8 @@ app.post('/api/riders', upload.none(), async (req, res) => {
       hasAadhar, hasPan
     } = req.body;
 
-    const aadharStatus = hasAadhar === 'true' ? 'Yes' : 'No';
-    const panStatus = hasPan === 'true' ? 'Yes' : 'No';
+    const aadharStatus = hasAadhar ? 'Yes' : 'No';
+    const panStatus = hasPan ? 'Yes' : 'No';
 
     const result = await sql`
       INSERT INTO riders (

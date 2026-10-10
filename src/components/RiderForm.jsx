@@ -85,17 +85,12 @@ export default function RiderForm() {
     setIsSubmitting(true);
     
     try {
-      const formData = new FormData();
-      // Append all text/boolean fields
-      Object.keys(form).forEach(key => {
-        if (form[key] !== null && form[key] !== undefined) {
-          formData.append(key, form[key]);
-        }
-      });
-
       const response = await fetch('/api/riders', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
       });
 
       if (!response.ok) throw new Error('Failed to submit');
